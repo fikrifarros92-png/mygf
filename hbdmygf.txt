@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>happiest bday — mygf</title>
+<style>
+  :root{
+    --bg1:#fff1f2; --bg2:#fff5f7; --accent:#e11d48; --muted:#6b2d3b;
+    --card:#ffffffcc;
+  }
+  *{box-sizing:border-box}
+  body{font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0; background:linear-gradient(180deg,var(--bg1),var(--bg2)); color:var(--muted); -webkit-font-smoothing:antialiased; padding-bottom:120px;}
+  .container{max-width:920px;margin:32px auto;padding:0 16px;}
+  header{text-align:center;margin-top:10px;}
+  h1{font-size:2.2rem;color:var(--accent);margin:0 0 6px;font-weight:800;letter-spacing:-0.02em;}
+  p.lead{margin:0;color:rgba(107,45,59,.7)}
+  .card{background:var(--card);backdrop-filter: blur(6px);border-radius:16px;padding:20px;box-shadow:0 6px 24px rgba(200,100,120,.08);border:1px solid rgba(225,29,72,.06)}
+  .step{margin-top:22px}
+  .step .meta{display:flex;align-items:center;gap:10px;color:var(--accent);font-weight:700;font-size:12px;text-transform:uppercase}
+  .step h2{margin:10px 0;font-size:1.4rem}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;border:none;background:var(--accent);color:white;font-weight:700;cursor:pointer;box-shadow:0 6px 18px rgba(225,29,72,.18);transform:translateZ(0)}
+  .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:18px}
+  .note{padding:16px;border-radius:14px;background:rgba(255,255,255,.9);border:1px solid rgba(225,29,72,.06)}
+  .note h3{margin:0 0 8px;font-size:1.05rem}
+  .letter{margin-top:20px}
+  footer{text-align:center;margin-top:28px;color:rgba(107,45,59,.65);font-size:13px}
+  /* Floating hearts */
+  .floating{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+  .heart{position:absolute;font-size:18px;opacity:0;transform:translateY(40vh) scale(.8);animation:floatUp 12s linear infinite}
+  @keyframes floatUp{0%{transform:translateY(40vh) scale(.8);opacity:0}10%{opacity:.8}100%{transform:translateY(-20vh) scale(1);opacity:0}}
+</style>
+</head>
+<body>
+<div class="floating" id="floating"></div>
+
+<main class="container">
+  <header>
+    <h1>happiest bday — mygf</h1>
+    <p class="lead">a tiny interactive page to celebrate her day ♡</p>
+  </header>
+
+  <!-- Foto berdua (Hero) -->
+  <section class="card" style="margin-top:18px;overflow:hidden;text-align:center">
+    <img src="images/photo1.jpg" alt="us together" style="width:100%;border-radius:14px;"/>
+    <p style="margin-top:8px;font-style:italic;text-align:center;opacity:.8">
+      our favorite memory together — happy birthday, my love ♡
+    </p>
+  </section>
+
+  <!-- Step interaktif -->
+  <section class="step card" id="stepCard">
+    <div class="meta"><span id="stepIcon">✨</span><span id="stepCounter">Step 1 / 4</span></div>
+    <h2 id="stepTitle">happy birthday my girlfriend!!</h2>
+    <p id="stepText">there’s more waiting… tap to find out ✨</p>
+    <div style="margin-top:14px">
+      <button class="btn" id="stepBtn">tap</button>
+      <button style="margin-left:8px" id="resetBtn" class="btn" aria-hidden="true" hidden>reset</button>
+    </div>
+  </section>
+
+  <!-- Gallery / cute notes -->
+  <section class="gallery" id="gallery">
+    <article class="note card">
+      <div style="font-weight:700;color:var(--accent);margin-bottom:6px">cute note</div>
+      <h3>you deserve all the love today &amp; always. happy birthday, my girlfriend</h3>
+      <p style="margin:0 0 10px;opacity:.9">just two outlines, but the warmth says it all.</p>
+      <button class="btn" onclick="alert('♡')">open this (♡˙ᵕ˙♡)</button>
+    </article>
+    <article class="note card">
+      <div style="font-weight:700;color:var(--accent);margin-bottom:6px">cute note</div>
+      <h3>every year, you grow wiser, kinder, and even more amazing. happy birthday, my girl ♡</h3>
+      <p style="margin:0 0 10px;opacity:.9">just you, being effortlessly my favorite view.</p>
+      <button class="btn" onclick="alert('♡')">♡</button>
+    </article>
+    <article class="note card">
+      <div style="font-weight:700;color:var(--accent);margin-bottom:6px">cute note</div>
+      <h3>i swear every time we take a photo together, i end up liking you even more.</h3>
+      <p style="margin:0 0 10px;opacity:.9">it’s your day, my girlfriend. scroll down, i left a little letter for you</p>
+      <button class="btn" onclick="alert('♡')">♡</button>
+    </article>
+    <!-- Foto selfie -->
+    <article class="note card">
+      <div style="font-weight:700;color:var(--accent);margin-bottom:6px">cute note</div>
+      <img src="images/photo2.jpg" alt="her selfie" style="width:100%;border-radius:12px;margin-bottom:8px"/>
+      <h3>the prettiest birthday girl ♡</h3>
+      <p style="margin:0 0 10px;opacity:.9">couldn’t resist adding this one here.</p>
+      <button class="btn" onclick="alert('ily ♡')">♡</button>
+    </article>
+  </section>
+
+  <!-- Letter -->
+  <section class="letter card" id="letter">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px"><strong>happy birthday my lovee-!!</strong></div>
+    <p style="line-height:1.6">
+      today’s all yours. thank you for being so kind, funny, gorgeous, and endlessly supportive. i’m proud of you—of how you grow, learn, and still make room for joy. i hope this year gives you new adventures, light mornings, soft evenings, and everything your heart is quietly wishing for.
+    </p>
+    <p style="margin-top:12px;line-height:1.6">
+      ps: i love you more than i can explain in one page. so… i made this one anyway. happy birthday, my girlfriend ♡
+    </p>
+  </section>
+
+  <footer>
+    made with love • swap any text/images you want • © 2025
+  </footer>
+</main>
+
+<!-- Musik background -->
+<audio id="bg-music" src="song.mp3" autoplay loop hidden></audio>
+<script>
+// Steps
+const steps = [
+  {icon:'✨',title:'happy birthday my girlfriend!!',text:"there’s more waiting… tap to find out ✨",cta:'tap'},
+  {icon:'✉️',title:'you get more amazing every year. happy birthday, baby.',text:'i wrote you a little something—open it?',cta:'open it'},
+  {icon:'💖',title:"you’re already the birthday girl, did you have to be this pretty too? not fair.",text:'okay but seriously… there’s more ↓',cta:'next'},
+  {icon:'🎁',title:'okay okay last one—i made something for your bday, read it slowly yaa',text:'ready?',cta:'okaay'}
+];
+let idx = 0;
+const stepIcon = document.getElementById('stepIcon');
+const stepCounter = document.getElementById('stepCounter');
+const stepTitle = document.getElementById('stepTitle');
+const stepText = document.getElementById('stepText');
+const stepBtn = document.getElementById('stepBtn');
+const resetBtn = document.getElementById('resetBtn');
+
+function renderStep(){
+  const s = steps[idx];
+  stepIcon.textContent = s.icon;
+  stepCounter.textContent = `Step ${idx+1} / ${steps.length}`;
+  stepTitle.textContent = s.title;
+  stepText.textContent = s.text;
+  stepBtn.textContent = s.cta;
+  if(idx === steps.length-1){ stepBtn.textContent = 'celebrate 🎉'; }
+  resetBtn.hidden = idx===0;
+}
+stepBtn.addEventListener('click',()=>{
+  if(idx < steps.length-1){ idx++; renderStep(); }
+  else { burstConfetti(); }
+});
+resetBtn.addEventListener('click',()=>{ idx=0; renderStep(); });
+
+renderStep();
+
+// Floating hearts
+const floating = document.getElementById('floating');
+for(let i=0;i<14;i++){
+  const span = document.createElement('div');
+  span.className='heart';
+  span.style.left = (i*7)%100 + '%';
+  span.style.bottom = (-10 - i*8) + 'px';
+  span.style.fontSize = (12 + (i%6)*4) + 'px';
+  span.style.animationDelay = (i*0.6)+'s';
+  span.textContent='♡';
+  floating.appendChild(span);
+}
+
+// Confetti
+function burstConfetti(){
+  if(window.confetti){ window.confetti({particleCount:140,spread:80,origin:{y:0.6}}); return; }
+  const s = document.createElement('script');
+  s.src = "https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js";
+  s.onload = ()=>{ if(window.confetti) window.confetti({particleCount:140,spread:80,origin:{y:0.6}}); };
+  document.head.appendChild(s);
+}
+
+// Music control
+const audio = document.getElementById('bg-music');
+const btn = document.createElement('button');
+btn.textContent = '🔊 pause';
+btn.style.position='fixed';btn.style.bottom='16px';btn.style.right='16px';btn.style.zIndex=100;btn.style.padding='6px 10px';btn.style.borderRadius='8px';btn.style.border='none';btn.style.background='rgba(225,29,72,.85)';btn.style.color='white';btn.style.fontWeight='700';btn.style.cursor='pointer';
+btn.onclick = ()=>{ if(audio.paused){ audio.play(); btn.textContent='🔊 pause'; } else { audio.pause(); btn.textContent='🔈 play'; } };
+document.body.appendChild(btn);
+</script>
+</body>
+</html>
